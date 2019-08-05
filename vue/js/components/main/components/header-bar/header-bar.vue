@@ -10,7 +10,7 @@
 <script lang="babel">
 import siderTrigger from 'component!./sider-trigger/sider-trigger'
 import customBreadCrumb from 'component!./custom-bread-crumb/custom-bread-crumb'
-import 'less!./header-bar'
+// import 'less!./header-bar'
 export default {
   name: 'HeaderBar',
   components: {

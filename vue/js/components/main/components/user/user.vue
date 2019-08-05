@@ -16,7 +16,7 @@
 </template>
 
 <script lang="babel">
-import 'less!./user.less'
+// import 'less!./user.less'
 import { mapActions } from 'vuex'
 import { Icon,Dropdown,DropdownMenu,DropdownItem,Badge,Avatar} from 'iview';
 export default {

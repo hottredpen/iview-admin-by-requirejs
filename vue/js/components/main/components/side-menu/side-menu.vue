@@ -35,7 +35,7 @@ import CollapsedMenu from 'component!./collapsed-menu'
 import { getUnion } from 'babel!../../../../libs/tools'
 import mixin from 'babel!./mixin'
 
-import 'less!./side-menu.less';
+// import 'less!./side-menu.less';
 import { Menu ,MenuItem ,Tooltip} from 'iview';
 import { showTitle } from 'babel!../../../../libs/util'
 

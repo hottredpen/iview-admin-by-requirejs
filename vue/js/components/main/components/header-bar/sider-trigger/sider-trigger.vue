@@ -2,7 +2,7 @@
   <a @click="handleChange" type="text" :class="['sider-trigger-a', collapsed ? 'collapsed' : '']"><i-icon :type="icon" :size="size" /></a>
 </template>
 <script lang="babel">
-import 'less!./sider-trigger.less';
+// import 'less!./sider-trigger.less';
 import { Icon } from 'iview';
 export default {
   name: 'siderTrigger',

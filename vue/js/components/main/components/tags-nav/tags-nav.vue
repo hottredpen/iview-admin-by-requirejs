@@ -51,7 +51,7 @@ import { showTitle, routeEqual } from 'babel!../../../../libs/util'
 import beforeClose from 'babel!../../../../router/before-close'
 import { Icon,Dropdown,DropdownMenu,DropdownItem,Button,Tag} from 'iview';
 
-import 'less!./tags-nav.less';
+// import 'less!./tags-nav.less';
 
 export default {
   name: 'TagsNav',

@@ -27,7 +27,7 @@ require.config({
         'js-cookie':'http://gjp.me/vue/js/lib/js.cookie',
         'axios':'http://gjp.me/vue/js/lib/axios.min',
         'vue-i18n':'http://gjp.me/vue/js/lib/vue-i18n.min',
-        
+
     },
 });
 require(['babel!app'],function(app){
@@ -35,16 +35,29 @@ require(['babel!app'],function(app){
     // 动态加载组件
     app.default.$store.sss = function(component_name,cb){
         return new Promise(function(resolve, reject) {
-            require(['component!http://gjp_admin.me/js/view/'+component_name],function(component_js){
+            // component_name = 'test3'
+            require(['component!http://gjp.me/vuebuilder/'+component_name],function(component_js){
+                // console.log(component_js);
                 if(component_js){
-                    console.log('入口处载入的component_js');
-                    console.log(component_js);
+                    // console.log('入口处载入的component_js');
+                    // console.log(component_js);
                     cb(component_js);
-                    resolve(component_js);
+                    resolve(true);
                 }else{
                     reject(false);
                 }
             });
+
+            // require(['component!http://gjp.me/vue/js/view/'+component_name],function(component_js){
+            //     if(component_js){
+            //         console.log('入口处载入的component_js');
+            //         console.log(component_js);
+            //         cb(component_js);
+            //         resolve(component_js);
+            //     }else{
+            //         reject(false);
+            //     }
+            // });
         });
     }
 });

@@ -49,7 +49,7 @@ import { getNewTagList, routeEqual } from 'babel!../../../libs/util'
 // import minLogo from '@/assets/images/logo-min.jpg'
 // import maxLogo from '@/assets/images/logo.jpg'
 
-import 'less!./main.less'
+// import 'less!./main.less'
 import { Layout ,Sider,Header } from 'iview';
 export default {
   name: 'Main',

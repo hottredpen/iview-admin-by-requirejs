@@ -16,6 +16,9 @@ import LoginForm from 'component!./login-form'
 import { Card } from 'iview';
 import { mapActions } from 'vuex'
 import config from 'babel!../../config/index'
+
+// import 'less!./login.less'; // 为了减少请求次数，所有less都加入app.less
+
 export default {
   name: 'login',
   components: {

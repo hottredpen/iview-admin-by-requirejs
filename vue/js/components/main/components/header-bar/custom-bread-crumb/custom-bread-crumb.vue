@@ -11,7 +11,7 @@
 <script lang="babel">
 import { showTitle } from 'babel!../../../../../libs/util'
 import CommonIcon from 'component!../../../../../components/common-icon/common-icon'
-import 'less!./custom-bread-crumb.less'
+// import 'less!./custom-bread-crumb.less'
 import { Breadcrumb,BreadcrumbItem } from 'iview';
 export default {
   name: 'customBreadCrumb',
