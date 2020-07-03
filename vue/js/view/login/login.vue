@@ -15,7 +15,8 @@
 import LoginForm from 'component!./login-form'
 import { Card } from 'iview';
 import { mapActions } from 'vuex'
-import config from 'babel!../../config/index'
+import Vue from 'vue'
+// import config from 'babel!../../config/index'
 
 // import 'less!./login.less'; // 为了减少请求次数，所有less都加入app.less
 
@@ -31,12 +32,18 @@ export default {
       'getUserInfo'
     ]),
     handleSubmit ({ userName, password }) {
+      var that = this
       this.handleLogin({ userName, password }).then(res => {
-        this.getUserInfo().then(res => {
-          this.$router.push({
-            name: config.homeName
+        console.log(res)
+        if(res.code == 200) {
+          this.getUserInfo().then(res => {
+            this.$router.push({
+              name: that.$config.homeName
+            })
           })
-        })
+        }else{
+          alert(res.msg)
+        }
       })
     }
   }

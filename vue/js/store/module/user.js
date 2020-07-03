@@ -78,12 +78,14 @@ export default {
       userName = userName.trim()
       return new Promise((resolve, reject) => {
         login({
-          userName,
-          password
+            userName,
+            password
         }).then(res => {
-          const data = res.data
-          commit('setToken', data.token)
-          resolve()
+          if(res.code == 200) {
+            const data = res.data
+            commit('setToken', data.token)
+          }
+          resolve(res)
         }).catch(err => {
           reject(err)
         })

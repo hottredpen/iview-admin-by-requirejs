@@ -40,13 +40,14 @@ export default {
     }
   },
   watch: {
-    lang (lang) {
-      this.$i18n.locale = lang
-    }
+    // lang (lang) {
+    //   this.$i18n.locale = lang
+    // }
   },
   computed: {
     title () {
-      return this.langList[this.lang]
+      // return this.langList[this.lang]
+      return this.langList['zh-CN']
     }
   },
   methods: {

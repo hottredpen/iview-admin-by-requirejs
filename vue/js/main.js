@@ -1,33 +1,24 @@
 require.config({
     paths: {
-        // Transformers
+        // es6等转义包
+        'babel-standalone': 'http://aixh-vue.me/js/lib/babel_standalone_6.26.0_babel.min',
+        'babel-polyfill': 'http://aixh-vue.me/js/lib/babel_polyfill_6.26.0_polyfill.min',
+        'vue': 'http://aixh-vue.me/js/lib/vue_2.5.21_vue',
+        'vuex': 'http://aixh-vue.me/js/lib/vuex_3.0.1_vuex.min',
+        'vue-router': 'http://aixh-vue.me/js/lib/vue-router_3.0.2_vue-router.min',
+        'http-vue-loader': 'http://aixh-vue.me/js/lib/1.4.0_src_httpVueLoader',
+        'iview':'http://aixh-vue.me/js/lib/iview3.4.2.min',
+        'js-cookie':'http://aixh-vue.me/js/lib/js.cookie',
+        'axios':'http://aixh-vue.me/js/lib/axios.min',
+        'qs':'http://aixh-vue.me/js/lib/qs',
+        'vue-i18n':'http://aixh-vue.me/js/lib/vue-i18n.min',
+        // es6等转义(requirejs)
         'babel': 'transform/babel',
         'component': 'transform/component',
         'less-builder':'transform/less/less-builder',
         'normalize':'transform/less/normalize',
         'lessc':'transform/less/lessc',
         'less': 'transform/less',
-
-        // Packages
-        // 'babel-standalone': 'https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min',
-        // 'babel-polyfill': 'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min',
-        // 'vue': 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.21/vue',
-        // 'vuex': 'https://cdnjs.cloudflare.com/ajax/libs/vuex/3.0.1/vuex.min',
-        // 'vue-router': 'https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.2/vue-router.min',
-        // 'http-vue-loader': 'https://unpkg.com/http-vue-loader@1.4.0/src/httpVueLoader',
-
-        'babel-standalone': 'http://gjp.me/vue/js/lib/babel_standalone_6.26.0_babel.min',
-        'babel-polyfill': 'http://gjp.me/vue/js/lib/babel_polyfill_6.26.0_polyfill.min',
-        'vue': 'http://gjp.me/vue/js/lib/vue_2.5.21_vue',
-        'vuex': 'http://gjp.me/vue/js/lib/vuex_3.0.1_vuex.min',
-        'vue-router': 'http://gjp.me/vue/js/lib/vue-router_3.0.2_vue-router.min',
-        'http-vue-loader': 'http://gjp.me/vue/js/lib/1.4.0_src_httpVueLoader',
-
-        'iview':'http://gjp.me/vue/js/lib/iview3.4.2.min',
-        'js-cookie':'http://gjp.me/vue/js/lib/js.cookie',
-        'axios':'http://gjp.me/vue/js/lib/axios.min',
-        'vue-i18n':'http://gjp.me/vue/js/lib/vue-i18n.min',
-
     },
 });
 require(['babel!app'],function(app){
@@ -36,7 +27,9 @@ require(['babel!app'],function(app){
     app.default.$store.sss = function(component_name,cb){
         return new Promise(function(resolve, reject) {
             // component_name = 'test3'
-            require(['component!http://gjp.me/vuebuilder/'+component_name],function(component_js){
+            var is_add_version = '?version='+Date.parse(new Date());
+            is_add_version = "";
+            require(['component!http://aixh-api.me/vuebuilder/'+component_name+is_add_version],function(component_js){
                 // console.log(component_js);
                 if(component_js){
                     // console.log('入口处载入的component_js');
@@ -48,7 +41,7 @@ require(['babel!app'],function(app){
                 }
             });
 
-            // require(['component!http://gjp.me/vue/js/view/'+component_name],function(component_js){
+            // require(['component!http://aixh-vue.me/js/view/'+component_name],function(component_js){
             //     if(component_js){
             //         console.log('入口处载入的component_js');
             //         console.log(component_js);

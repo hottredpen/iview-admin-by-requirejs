@@ -1,9 +1,9 @@
 // import Main from '@/components/main'
 // import parentView from '@/components/parent-view'
 
-import login from 'component!../view/login/login'
+import login from 'component!../view/login/login'  // 登录页面没法优化
 import table_page from 'component!../view/table'
-
+import form_page from 'component!../view/form'
 import dynamic_page from 'component!../view/dynamic-page'
 
 // import abc_page from 'component!../view/abc-page'
@@ -77,19 +77,38 @@ export default [
     ]
   },
   {
-    path: '/abc',
-    name: 'abc',
+    path: '/fromBuilder',
+    name: 'fromBuilder',
     component: Main,
     meta: {
       hideInBread: true
     },
     children: [
       {
-        path: '/abc',
-        name: 'abc',
+        path: '/fromBuilder',
+        name: 'fromBuilder',
         meta: {
           icon: '_qq',
-          title: '异步加载'
+          title: '表单构建'
+        },
+        component: dynamic_page
+      }
+    ]
+  },
+  {
+    path: '/listBuilder',
+    name: 'listBuilder',
+    component: Main,
+    meta: {
+      hideInBread: true
+    },
+    children: [
+      {
+        path: '/listBuilder',
+        name: 'listBuilder',
+        meta: {
+          icon: '_qq',
+          title: '列表构建'
         },
         component: dynamic_page
       }
@@ -111,6 +130,25 @@ export default [
           title: '表格'
         },
         component: table_page
+      }
+    ]
+  },
+  {
+    path: '/form',
+    name: 'form',
+    component: Main,
+    meta: {
+      hideInBread: true
+    },
+    children: [
+      {
+        path: '/form',
+        name: 'form',
+        meta: {
+          icon: '_qq',
+          title: '表单'
+        },
+        component: form_page
       }
     ]
   },

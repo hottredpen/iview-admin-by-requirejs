@@ -1,4 +1,7 @@
 import Cookies from 'js-cookie'
+import Vue from 'vue'
+import axios from 'axios';
+import qs from 'qs'
 // cookie保存的天数
 import config from 'babel!../config/index'
 import { forEach, hasOneOf, objEqual } from 'babel!../libs/tools'
@@ -7,7 +10,43 @@ const { title, cookieExpires, useI18n } = config
 export const TOKEN_KEY = 'token'
 
 export const setToken = (token) => {
-  Cookies.set(TOKEN_KEY, token, { expires: cookieExpires || 1 })
+  Cookies.set(TOKEN_KEY, token, { expires: config.cookieExpires || 1 })
+}
+
+export const request = (method, url,data) => {
+    const service = axios.create({
+      baseURL: '/', // api的base_url
+      transformRequest: [function(data) {
+        data = qs.stringify(data)
+        return data
+      }]
+    })
+  // request interceptor
+  service.interceptors.request.use(config => {
+    config.headers['X-Token'] = getToken()
+    return config
+  }, error => {
+    console.log(error) // for debug
+    Promise.reject(error)
+  })
+    return new Promise((resolve, reject) => {
+        service({
+          url: url,
+          data : data,
+          method: method
+      }).then(res => {
+        if(res.status == 200){
+          if(res.data.code == 401){
+            // 未登录
+          }
+          resolve(res.data)
+        }else{
+          console.log(res)
+        }
+        }).catch(err => {
+          reject(err)
+        })
+     })
 }
 
 export const getToken = () => {
